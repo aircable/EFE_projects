@@ -1,0 +1,21 @@
+dependencies:
+  espressif/mdns:
+    component_hash: 3f3bf8ff67ec99dde4e935637af087ebc899b9fee396ffa1c9138d3775f1aca4
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.0.9
+  idf:
+    component_hash: null
+    source:
+      type: idf
+    version: 5.2.0
+  joltwallet/littlefs:
+    component_hash: e855f5edaf697b03bf19a5015262896f43baf900f5df0ab5f408b494b0a10a46
+    source:
+      service_url: https://api.components.espressif.com/
+      type: service
+    version: 1.5.4
+manifest_hash: 0493b73f129a4acf82322855234f82303aa9802664f1adc99a9f31432ed0cd64
+target: esp32s3
+version: 1.0.0
