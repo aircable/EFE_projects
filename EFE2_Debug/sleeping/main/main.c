@@ -176,7 +176,7 @@ void app_main( void ){
     
 
 
-	// nvm flash and settings
+    // nvm flash and settings
 	bool was_read = settings_init( true );  
 
     // get system RTC time
