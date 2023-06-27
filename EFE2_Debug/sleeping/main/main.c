@@ -168,14 +168,13 @@ void app_main( void ){
     // start up, was it reset or sleep wakeup
     bool reset = wakeup_processor();
 
-    sleep_init( 1ULL << CONFIG_BUTTON_GPIO, false ); // wakeup on button press go low
+    //sleep_init( 1ULL << CONFIG_BUTTON_GPIO, false ); // wakeup on button press go low
+    sleep_init( 0, false ); // wakeup on button press go low
 
     // default event loop task and IRQ services
     ESP_ERROR_CHECK( esp_event_loop_create_default());
     ESP_ERROR_CHECK( gpio_install_isr_service( ESP_INTR_FLAG_DEFAULT ));
     
-
-
     // nvm flash and settings
 	bool was_read = settings_init( true );  
 
@@ -187,7 +186,7 @@ void app_main( void ){
 		// settings update (save every 5 minutes)
 		settings_update();
         // in microseconds
-        sleep_enter( 5000 * 1000 );
+        sleep_enter( 50000 * 1000 );
         // does not return
 	}
 }
