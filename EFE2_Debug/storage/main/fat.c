@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 #include "esp_log.h"
 #include "esp_vfs.h"
 #include "esp_vfs_fat.h"
@@ -35,6 +36,12 @@ void read_file(char *path)
 {
     ESP_LOGI(TAG, "reading file %s", path);
     FILE *file = fopen(path, "r");
+    if (errno) {
+        ESP_LOGE(TAG, "%s fopen file %s error %s",
+                 __func__, path, strerror(errno));
+        errno = 0;
+        return;
+    }
     char buffer[100];
     fgets(buffer, 99, file);
     fclose(file);
